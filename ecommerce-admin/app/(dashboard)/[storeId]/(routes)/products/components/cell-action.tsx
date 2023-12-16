@@ -16,10 +16,10 @@ import {
 import { Button } from "@/components/ui/button";
 import { AlertModal } from "@/components/modals/alert-modal";
 
-import { BillboardColumn } from "./columns";
+import { ProductColumn } from "./columns";
 
 interface CellActionProps {
-    data: BillboardColumn;
+    data: ProductColumn;
 };
 
 
@@ -35,7 +35,7 @@ export const CellAction: React.FC<CellActionProps> = ({
 
     const onCopy = (id: string) => {
         navigator.clipboard.writeText(id);
-        toast.success("Billboard Id copied to the clipboard.");
+        toast.success("Product Id copied to the clipboard.");
     };
 
 
@@ -43,11 +43,11 @@ export const CellAction: React.FC<CellActionProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true)
-            await axios.delete(`/api/${params.storeId}/billboards/${data.id}`)
+            await axios.delete(`/api/${params.storeId}/products/${data.id}`)
             router.refresh();
-            toast.success("Billboard deleted.");
+            toast.success("Product deleted.");
         } catch (error) {
-            toast.error("Make sure you removed all categories using this billboard first.");
+            toast.error("Something went wrong.");
         } finally {
             setLoading(false);
             setOpen(false);
@@ -79,7 +79,7 @@ export const CellAction: React.FC<CellActionProps> = ({
                         <Copy className="mr-2 h-4 w-4" />
                         Copy Id
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/billboards/${data.id}`)}>
+                    <DropdownMenuItem onClick={() => router.push(`/${params.storeId}/products/${data.id}`)}>
                         <Edit className="mr-2 h-4 w-4" />
                         Update
                     </DropdownMenuItem>
@@ -90,6 +90,5 @@ export const CellAction: React.FC<CellActionProps> = ({
                 </DropdownMenuContent>
             </DropdownMenu>
         </>
-
     )
 };
