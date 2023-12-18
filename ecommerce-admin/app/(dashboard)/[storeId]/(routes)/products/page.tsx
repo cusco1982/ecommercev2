@@ -1,10 +1,10 @@
 import { format } from "date-fns";
 
 import prismadb from "@/lib/prismadb";
+import { formatter } from "@/lib/utils";
 
 import { ProductClient } from "./components/client";
 import { ProductColumn } from "./components/columns";
-import { formatter } from "@/lib/utils";
 
 const ProductsPage = async ({
     params
@@ -37,6 +37,8 @@ const ProductsPage = async ({
         color: item.color.value,
         createdAt: format(item.createdAt, "MMMM do, yyyy")
     }))
+
+
 
     return (
         <div className="flex-col">
