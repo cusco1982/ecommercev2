@@ -1,8 +1,12 @@
 'use client';
 
-function NavbarActions() {
+const NavbarActions = () => {
     return (
-        <div>NavbarActions</div>
+        <div className="ml-auto flex items-center gap-x-4">
+            
+            Hello actions
+
+        </div>
     )
 };
 
