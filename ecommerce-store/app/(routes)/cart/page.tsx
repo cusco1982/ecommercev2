@@ -29,7 +29,7 @@ const CartPage = () => {
                     <div className="mt-12 lg:grid lg:grid-cols-12 lg:items-start gap-x-12">
                         <div className="lg:col-span-7">
                             {cart?.items.length === 0 && (
-                                <p className="text-neutral-500">Your cart is empty</p>
+                                <p className="text-neutral-500">Your cart is empty.</p>
                             )}
                             <ul>
                                 {cart?.items.map((item) => (
