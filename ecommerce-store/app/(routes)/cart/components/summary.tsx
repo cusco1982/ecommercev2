@@ -24,7 +24,7 @@ const Summary = () => {
             toast.error('Something went wrong.');
         }
     }, [searchParams, removeAll]);
-    
+
 
     const totalPrice = items.reduce((total, item) => {
         return total + Number(item.price);
